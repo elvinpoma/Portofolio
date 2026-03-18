@@ -19,7 +19,7 @@
     "multiplataforma",
     "dam"
   ],
-  "author": "Tu Nombre",
+  "author": "Elvin Isaí Portillo Martínez",
   "license": "MIT",
   "devDependencies": {
     "http-server": "^14.1.1"
@@ -27,7 +27,7 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/tunombre/portafolio"
+    "url": "https://github.com/elvinpoma/portafolio"
   },
-  "homepage": "https://tunombre-portfolio.com"
+  "homepage": "https://elvinpoma-portfolio.com"
 }
