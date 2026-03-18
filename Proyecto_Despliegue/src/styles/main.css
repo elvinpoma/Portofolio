@@ -1,0 +1,125 @@
+/* ============================================================
+   TOKENS Y VARIABLES DE DISEÑO
+============================================================ */
+:root {
+  --color-fondo:          #F7F7F7;
+  --color-fondo-secundario: #EFEFEF;
+  --color-superficie:     #FFFFFF;
+  --color-borde:          rgba(0,0,0,0.08);
+  --color-texto-primario: #0A0A0A;
+  --color-texto-secundario: #5A5A6A;
+  --color-texto-terciario: #8A8A9A;
+  --color-acento:         #0052CC;
+  --color-acento-hover:   #0041A8;
+  --color-acento-glow:    rgba(0, 82, 204, 0.30);
+  --color-acento-sutil:   rgba(0, 82, 204, 0.08);
+  --fuente-display:       'Syne', sans-serif;
+  --fuente-cuerpo:        'Figtree', sans-serif;
+  --fuente-mono:          'JetBrains Mono', monospace;
+  --radio-tarjeta:        16px;
+  --sombra-suave:         0 4px 24px rgba(0,0,0,0.07);
+  --sombra-elevada:       0 12px 40px rgba(0,0,0,0.12);
+  --transicion-fluida:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --ancho-maximo:         1200px;
+}
+
+/* ============================================================
+   RESET Y BASE
+============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-acento) transparent;
+}
+
+body {
+  font-family:      var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color:            var(--color-texto-primario);
+  line-height:      1.7;
+  font-size:        1rem;
+  overflow-x:       hidden;
+  transition:       background-color 0.4s ease, color 0.4s ease;
+  cursor: none;
+}
+
+::selection {
+  background: var(--color-acento);
+  color: #fff;
+}
+
+/* ============================================================
+   TEXTURA DE GRANO (OVERLAY)
+============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='ruido'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ruido)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   TIPOGRAFÍA BASE
+============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--fuente-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   LAYOUT GENÉRICO DE SECCIONES
+============================================================ */
+.seccion {
+  position: relative;
+  padding: 7rem 2rem;
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+}
+
+.seccion__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--fuente-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-acento);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.seccion__etiqueta::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: var(--color-acento);
+}
+
+.seccion__titulo {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-texto-primario);
+  margin-bottom: 1rem;
+}
+
+.seccion__descripcion {
+  font-size: 1.05rem;
+  color: var(--color-texto-secundario);
+  max-width: 560px;
+  line-height: 1.8;
+}

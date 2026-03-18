@@ -1,0 +1,30 @@
+/* ============================================================
+   DECORACIONES
+============================================================ */
+.hero__fondo-malla {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 100svh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.hero__fondo-malla::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-acento-glow) 0%, transparent 70%);
+  top: 0%; right: -150px;
+  animation: flotarBurbuja 12s ease-in-out infinite;
+}
+
+.hero__fondo-malla::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+  animation: flotarBurbuja 16s ease-in-out infinite reverse;
+}

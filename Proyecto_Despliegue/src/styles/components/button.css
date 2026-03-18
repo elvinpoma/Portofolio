@@ -1,0 +1,57 @@
+/* ============================================================
+   COMPONENTE: BOTÓN
+============================================================ */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  border-radius: 99px;
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  cursor: none;
+  transition: var(--transicion-fluida);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boton:hover::before {
+  transform: translateX(0);
+}
+
+.boton--primario {
+  background: var(--color-acento);
+  color: #fff;
+  box-shadow: 0 0 0 0 var(--color-acento-glow);
+}
+
+.boton--primario:hover {
+  background: var(--color-acento-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--color-acento-glow);
+}
+
+.boton--contorno {
+  background: transparent;
+  color: var(--color-texto-primario);
+  border: 1.5px solid var(--color-borde);
+}
+
+.boton--contorno:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--color-acento-glow);
+}

@@ -1,0 +1,107 @@
+/* ============================================================
+   SECCIÓN: NAVEGACIÓN
+============================================================ */
+.navegacion {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: color-mix(in srgb, var(--color-fondo) 75%, transparent);
+  border-bottom: 1px solid var(--color-borde);
+  transition: var(--transicion-fluida);
+}
+
+.navegacion__logo {
+  font-family: var(--fuente-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  color: var(--color-texto-primario);
+}
+
+.navegacion__logo span {
+  color: var(--color-acento);
+}
+
+.navegacion__enlaces {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.navegacion__enlaces a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-texto-secundario);
+  letter-spacing: 0.01em;
+  position: relative;
+  transition: color 0.25s;
+}
+
+.navegacion__enlaces a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--color-acento);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navegacion__enlaces a:hover {
+  color: var(--color-texto-primario);
+}
+
+.navegacion__enlaces a:hover::after {
+  width: 100%;
+}
+
+.navegacion__controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.boton-tema {
+  width: 44px; height: 24px;
+  background: var(--color-superficie);
+  border: 1.5px solid var(--color-borde);
+  border-radius: 99px;
+  cursor: none;
+  position: relative;
+  transition: var(--transicion-fluida);
+}
+
+.boton-tema::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 16px; height: 16px;
+  background: var(--color-acento);
+  border-radius: 50%;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-tema="oscuro"] .boton-tema::after {
+  transform: translateX(20px);
+}
+
+.navegacion__menu-movil {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: none;
+  padding: 4px;
+}
+
+.navegacion__menu-movil span {
+  width: 22px; height: 2px;
+  background: var(--color-texto-primario);
+  border-radius: 2px;
+  transition: var(--transicion-fluida);
+}

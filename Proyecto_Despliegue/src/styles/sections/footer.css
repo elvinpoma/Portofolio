@@ -1,0 +1,16 @@
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  border-top: 1px solid var(--color-borde);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-texto-terciario);
+  font-family: var(--fuente-mono);
+  letter-spacing: 0.04em;
+}
+
+footer span {
+  color: var(--color-acento);
+}

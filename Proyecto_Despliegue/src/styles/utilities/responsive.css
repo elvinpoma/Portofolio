@@ -1,0 +1,94 @@
+/* ============================================================
+   RESPONSIVE — TABLET
+============================================================ */
+@media (max-width: 1024px) {
+  .hero__decoracion-codigo {
+    display: none;
+  }
+
+  .sobre-mi__contenedor {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sobre-mi__avatar {
+    max-width: 240px;
+  }
+
+  .contacto__contenedor {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL
+============================================================ */
+@media (max-width: 768px) {
+  .navegacion__enlaces {
+    display: none;
+  }
+
+  .navegacion__menu-movil {
+    display: flex;
+  }
+
+  .navegacion__enlaces.abierto {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: var(--color-superficie);
+    padding: 6rem 2rem 2rem;
+    gap: 2rem;
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+
+  .navegacion__enlaces.abierto a {
+    color: var(--color-texto-primario);
+    font-size: 1.3rem;
+  }
+
+  .timeline__linea {
+    left: 28px;
+  }
+
+  .timeline__elemento {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .timeline__elemento--izquierda .timeline__tarjeta,
+  .timeline__elemento--derecha .timeline__tarjeta {
+    grid-column: 2;
+    margin: 0;
+  }
+
+  .timeline__punto {
+    grid-column: 1;
+  }
+
+  .timeline__elemento--izquierda .timeline__espacio,
+  .timeline__elemento--derecha .timeline__espacio {
+    display: none;
+  }
+
+  .seccion {
+    padding: 4rem 1.25rem;
+  }
+
+  .hero {
+    padding: 6rem 1.25rem 3rem;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  .cursor-punto,
+  .cursor-anillo {
+    display: none;
+  }
+}

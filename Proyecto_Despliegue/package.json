@@ -1,0 +1,33 @@
+{
+  "name": "portafolio-dev",
+  "version": "1.0.0",
+  "description": "Portafolio profesional de Desarrollador de Apps Multiplataforma - HTML, CSS y JavaScript vanilla",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -c-1 -o index.html",
+    "build": "echo 'El proyecto está listo para desplegar - solo copia la carpeta del proyecto a tu servidor'",
+    "lint": "echo 'Usa tu IDE para validar el código'",
+    "format": "echo 'Formatea tu código manualmente o usa Prettier'"
+  },
+  "keywords": [
+    "portfolio",
+    "portafolio",
+    "developer",
+    "desarrollador",
+    "kotlin",
+    "javascript",
+    "multiplataforma",
+    "dam"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tunombre/portafolio"
+  },
+  "homepage": "https://tunombre-portfolio.com"
+}

@@ -1,0 +1,31 @@
+/* ============================================================
+   COMPONENTE: ETIQUETA/BADGE
+============================================================ */
+.etiqueta-tech {
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto-secundario);
+  letter-spacing: 0.04em;
+  transition: var(--transicion-fluida);
+}
+
+.etiqueta-tech:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  background: var(--color-acento-sutil);
+}
+
+.etiqueta-idioma {
+  font-family: var(--fuente-mono);
+  font-size: 0.65rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  background: var(--color-acento-sutil);
+  color: var(--color-acento);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}

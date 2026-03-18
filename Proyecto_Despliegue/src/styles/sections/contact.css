@@ -1,0 +1,100 @@
+/* ============================================================
+   SECCIÓN: CONTACTO
+============================================================ */
+.contacto__contenedor {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contacto__texto .seccion__titulo {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.contacto__texto .seccion__descripcion {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contacto__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contacto__tarjeta-info {
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-tarjeta);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.enlace-social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-borde);
+  background: var(--color-fondo);
+  transition: var(--transicion-fluida);
+  color: var(--color-texto-secundario);
+}
+
+.enlace-social:hover {
+  border-color: var(--color-acento);
+  color: var(--color-acento);
+  transform: translateX(5px);
+  background: var(--color-acento-sutil);
+}
+
+.enlace-social__icono {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--color-acento-sutil);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: var(--transicion-fluida);
+}
+
+.enlace-social:hover .enlace-social__icono {
+  background: var(--color-acento);
+  color: #fff;
+}
+
+.enlace-social__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.enlace-social__titulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.enlace-social__url {
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  color: var(--color-texto-terciario);
+}
+
+.enlace-social__flecha {
+  margin-left: auto;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: var(--transicion-fluida);
+  color: var(--color-acento);
+}
+
+.enlace-social:hover .enlace-social__flecha {
+  opacity: 1;
+  transform: translateX(0);
+}

@@ -1,0 +1,61 @@
+/* ============================================================
+   SECCIÓN: PROYECTOS — CARRUSEL
+============================================================ */
+.proyectos {
+  background: var(--color-fondo-secundario);
+  border-top: 1px solid var(--color-borde);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.proyectos__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.carrusel {
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  cursor: none;
+}
+
+.carrusel::before,
+.carrusel::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carrusel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-fondo-secundario), transparent);
+}
+
+.carrusel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-fondo-secundario), transparent);
+}
+
+.carrusel__pista {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  width: max-content;
+  animation: deslizarCarrusel 30s linear infinite;
+}
+
+.carrusel:hover .carrusel__pista {
+  animation-play-state: paused;
+}
+
+@keyframes deslizarCarrusel {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

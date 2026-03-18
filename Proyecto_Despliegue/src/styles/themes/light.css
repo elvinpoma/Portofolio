@@ -1,0 +1,16 @@
+/* ============================================================
+   TEMA: CLARO (POR DEFECTO)
+============================================================ */
+:root {
+  --color-fondo:          #F7F7F7;
+  --color-fondo-secundario: #EFEFEF;
+  --color-superficie:     #FFFFFF;
+  --color-borde:          rgba(0,0,0,0.08);
+  --color-texto-primario: #0A0A0A;
+  --color-texto-secundario: #5A5A6A;
+  --color-texto-terciario: #8A8A9A;
+  --color-acento:         #0052CC;
+  --color-acento-hover:   #0041A8;
+  --color-acento-glow:    rgba(0, 82, 204, 0.30);
+  --color-acento-sutil:   rgba(0, 82, 204, 0.08);
+}

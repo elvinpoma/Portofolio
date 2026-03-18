@@ -1,0 +1,18 @@
+/* ============================================================
+   TEMA: OSCURO
+============================================================ */
+[data-tema="oscuro"] {
+  --color-fondo:          #080810;
+  --color-fondo-secundario: #0F0F1A;
+  --color-superficie:     #13131F;
+  --color-borde:          rgba(255,255,255,0.07);
+  --color-texto-primario: #F0F0F5;
+  --color-texto-secundario: #9090A8;
+  --color-texto-terciario: #5A5A70;
+  --color-acento:         #3B82F6;
+  --color-acento-hover:   #60A5FA;
+  --color-acento-glow:    rgba(59, 130, 246, 0.35);
+  --color-acento-sutil:   rgba(59, 130, 246, 0.10);
+  --sombra-suave:         0 4px 24px rgba(0,0,0,0.30);
+  --sombra-elevada:       0 12px 40px rgba(0,0,0,0.50);
+}
