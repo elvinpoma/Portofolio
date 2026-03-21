@@ -1,29 +1,28 @@
 /* ============================================================
-   RESPONSIVE — TABLET
+   ESTILOS BASE (Móvil Primero - Recomendado)
+   Consejo: Es mejor diseñar para móvil y luego ampliar. 
+   Pero si ya tienes tu base, sigamos con tus Media Queries:
 ============================================================ */
+
+/* TABLETS Y LAPTOPS PEQUEÑAS (1024px hacia abajo) */
 @media (max-width: 1024px) {
   .hero__decoracion-codigo {
     display: none;
   }
 
-  .sobre-mi__contenedor {
+  .sobre-mi__contenedor,
+  .contacto__contenedor {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .sobre-mi__avatar {
-    max-width: 240px;
-  }
-
-  .contacto__contenedor {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    max-width: 220px; /* Un poco más pequeño para tablets */
+    margin: 0 auto;
   }
 }
 
-/* ============================================================
-   RESPONSIVE — MÓVIL
-============================================================ */
+/* MÓVILES GRANDES Y TABLETS EN VERTICAL (768px hacia abajo) */
 @media (max-width: 768px) {
   .navegacion__enlaces {
     display: none;
@@ -33,41 +32,39 @@
     display: flex;
   }
 
+  /* Menú pantalla completa */
   .navegacion__enlaces.abierto {
     display: flex;
     flex-direction: column;
     position: fixed;
     inset: 0;
     background: var(--color-superficie);
-    padding: 6rem 2rem 2rem;
-    gap: 2rem;
-    z-index: 99;
+    padding: 2rem;
+    z-index: 999; /* Asegurar que esté por encima de todo */
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
   }
 
-  .navegacion__enlaces.abierto a {
-    color: var(--color-texto-primario);
-    font-size: 1.3rem;
-  }
-
+  /* Ajuste de Timeline para móviles */
   .timeline__linea {
-    left: 28px;
+    left: 20px; /* Un poco más hacia el borde */
   }
 
   .timeline__elemento {
-    grid-template-columns: 56px 1fr;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
   }
 
   .timeline__elemento--izquierda .timeline__tarjeta,
   .timeline__elemento--derecha .timeline__tarjeta {
     grid-column: 2;
     margin: 0;
+    width: 100%; /* Asegura que ocupe todo el espacio */
   }
 
   .timeline__punto {
     grid-column: 1;
+    justify-self: center;
   }
 
   .timeline__elemento--izquierda .timeline__espacio,
@@ -75,20 +72,36 @@
     display: none;
   }
 
+  /* Desactivar cursores personalizados en táctiles */
+  .cursor-punto,
+  .cursor-anillo {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+}
+
+/* MÓVILES PEQUEÑOS (480px hacia abajo) */
+@media (max-width: 480px) {
   .seccion {
-    padding: 4rem 1.25rem;
+    padding: 3rem 1rem; /* Menos relleno para ganar espacio */
   }
 
   .hero {
-    padding: 6rem 1.25rem 3rem;
+    padding: 5rem 1rem 2rem;
   }
 
-  body {
-    cursor: auto;
+  h1 {
+    font-size: 1.8rem; /* Ajustar títulos si son muy largos */
   }
 
-  .cursor-punto,
-  .cursor-anillo {
-    display: none;
+  .sobre-mi__avatar {
+    max-width: 180px; /* Más pequeño para que no coma pantalla */
+  }
+  
+  .timeline__tarjeta {
+    padding: 1rem; /* Menos aire dentro de las tarjetas */
   }
 }
