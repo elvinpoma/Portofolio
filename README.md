@@ -1,12 +1,12 @@
 #  Portafolio Elvin - Desarrollador de Apps Multiplataforma
 
-> Un portafolio moderno, responsive y escalable construido con **HTML5, CSS3 vanilla y JavaScript puro** .
+> Un portafolio moderno y escalable construido con **HTML, CSS  y JavaScript ** .
 
 ##  Características
 
+<!-- - 📱 **100% Responsive**: Mobile-first design con breakpoints tablet y desktop -->
 - ✨ **Diseño Moderno**: Variables CSS, animaciones fluidas y efectos visuales premium
 - 🎨 **Tema Claro/Oscuro**: Sistema de temas con persistencia en localStorage
-<!-- - 📱 **100% Responsive**: Mobile-first design con breakpoints tablet y desktop -->
 - ♿ **Accesible**: HTML semántico con ARIA labels y atributos de accesibilidad
 - 🔄 **Arquitectura Modular**: Código separado en módulos independientes reutilizables
 - 📦 **Performance**: Optimizado para carga rápida, ~150KB gzipped
