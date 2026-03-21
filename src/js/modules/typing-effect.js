@@ -3,7 +3,7 @@
 ============================================================ */
 const moduloEfectoTipeo = (() => {
   const PALABRAS_ROTACION = [
-    'Multiplataforma',
+    'Multi Plataforma',
     'Android',
     'con Kotlin',
     'con JavaScript',
