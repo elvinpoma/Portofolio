@@ -1,14 +1,15 @@
 /* ============================================================
    SECCIÓN: NAVEGACIÓN
 ============================================================ */
-.navegacion {
+.navegacion{
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  padding: 1.25rem 2rem;
+  padding: clamp(0.6rem, 1.5vw, 1.5rem) clamp(0.75rem, 3.5vw, 2.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   background: color-mix(in srgb, var(--color-fondo) 75%, transparent);
@@ -19,9 +20,11 @@
 .navegacion__logo {
   font-family: var(--fuente-display);
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: clamp(0.75rem, 2.2vw, 1.3rem);
   letter-spacing: -0.03em;
   color: var(--color-texto-primario);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .navegacion__logo span {
@@ -31,17 +34,20 @@
 .navegacion__enlaces {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: clamp(0.75rem, 2.5vw, 2.5rem);
   align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 .navegacion__enlaces a {
-  font-size: 0.875rem;
+  font-size: clamp(0.7rem, 1.4vw, 0.9rem);
   font-weight: 500;
   color: var(--color-texto-secundario);
   letter-spacing: 0.01em;
   position: relative;
   transition: color 0.25s;
+  padding: 0.4rem 0;
 }
 
 .navegacion__enlaces a::after {
@@ -64,45 +70,53 @@
 .navegacion__controles {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.6rem, 1.5vw, 1rem);
+  flex-shrink: 0;
 }
 
 .boton-tema {
-  width: 44px; height: 24px;
+  width: clamp(36px, 8vw, 44px); 
+  height: clamp(20px, 4.5vw, 24px);
   background: var(--color-superficie);
   border: 1.5px solid var(--color-borde);
   border-radius: 99px;
   cursor: none;
   position: relative;
   transition: var(--transicion-fluida);
+  flex-shrink: 0;
 }
 
 .boton-tema::after {
   content: '';
   position: absolute;
-  top: 3px; left: 3px;
-  width: 16px; height: 16px;
+  top: 50%;
+  left: 3px;
+  width: clamp(12px, 3vw, 16px);
+  height: clamp(12px, 3vw, 16px);
   background: var(--color-acento);
   border-radius: 50%;
+  transform: translateY(-50%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-tema="oscuro"] .boton-tema::after {
-  transform: translateX(20px);
+  transform: translateY(-50%) translateX(clamp(12px, 3vw, 20px));
 }
 
 .navegacion__menu-movil {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: clamp(4px, 1vw, 5px);
   cursor: none;
-  padding: 8px;
+  padding: clamp(4px, 1vw, 8px);
   background: none;
   border: none;
+  flex-shrink: 0;
 }
 
 .navegacion__menu-movil span {
-  width: 24px; height: 2.5px;
+  width: clamp(18px, 5vw, 24px);
+  height: clamp(1.5px, 0.5vw, 2.5px);
   background: var(--color-texto-primario);
   border-radius: 2px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
