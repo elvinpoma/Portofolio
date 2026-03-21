@@ -4,7 +4,7 @@
 const moduloEfectoTipeo = (() => {
   const PALABRAS_ROTACION = [
     'Multiplataforma',
-    'Android & iOS',
+    'Android',
     'con Kotlin',
     'con JavaScript',
     'Impulsado por IA',
