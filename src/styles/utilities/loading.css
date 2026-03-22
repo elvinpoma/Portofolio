@@ -1,0 +1,297 @@
+/* ============================================================
+   PANTALLA DE CARGA / LOADING SCREEN
+============================================================ */
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: 100%;
+  max-height: 100%;
+  background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-fondo-secundario) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(0px);
+}
+
+.loading-screen.oculto {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+/* ============================================================
+   CONTENEDOR DEL SPINNER
+============================================================ */
+.loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+/* ============================================================
+   SPINNER ANIMADO (DISEÑO MODERNO)
+============================================================ */
+.loading-spinner {
+  width: clamp(60px, 15vw, 100px);
+  height: clamp(60px, 15vw, 100px);
+  position: relative;
+}
+
+/* Anillo exterior giratorio */
+.loading-spinner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--color-acento-sutil);
+  border-top-color: var(--color-acento);
+  border-right-color: var(--color-acento);
+  animation: girarSpinner 0.8s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
+}
+
+/* Anillo interior con rotación inversa */
+.loading-spinner::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-right-color: var(--color-acento);
+  border-bottom-color: var(--color-acento);
+  animation: girarSpinnerInverso 1.2s cubic-bezier(0.4, 0.15, 0.6, 0.85) infinite;
+}
+
+@keyframes girarSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes girarSpinnerInverso {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ============================================================
+   TEXTO DE CARGA
+============================================================ */
+.loading-texto {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.loading-titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-texto-primario);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.loading-descripcion {
+  font-family: var(--fuente-cuerpo);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--color-texto-secundario);
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Efecto de puntos animados */
+.loading-dots {
+  display: inline-block;
+  width: 1em;
+  overflow: hidden;
+}
+
+.loading-dots::after {
+  content: '...';
+  word-spacing: 0.2em;
+  animation: puntosAnimacion 1.5s step-end infinite;
+}
+
+@keyframes puntosAnimacion {
+
+  0%,
+  20% {
+    content: '.';
+  }
+
+  40% {
+    content: '..';
+  }
+
+  60%,
+  100% {
+    content: '...';
+  }
+}
+
+/* ============================================================
+   BARRA DE PROGRESO DE CARGA
+============================================================ */
+.loading-progress {
+  width: clamp(150px, 50vw, 300px);
+  height: clamp(3px, 0.5vw, 6px);
+  background: var(--color-borde);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 1rem;
+  display: none;
+}
+
+.loading-progress.activo {
+  display: block;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-acento), #8b5cf6);
+  border-radius: 99px;
+  width: 0%;
+  animation: aumentarProgreso 2s ease-in-out forwards;
+}
+
+@keyframes aumentarProgreso {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 60%;
+  }
+
+  85% {
+    width: 85%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   VARIANTES DE SPINNER
+============================================================ */
+
+/* Spinner minimalista (alternativo) */
+.loading-spinner.minimo {
+  width: clamp(50px, 12vw, 80px);
+  height: clamp(50px, 12vw, 80px);
+}
+
+.loading-spinner.minimo::before {
+  border-width: 2px;
+}
+
+.loading-spinner.minimo::after {
+  inset: 10px;
+  border-width: 2px;
+}
+
+/* ============================================================
+   ANIMACIÓN DE DESAPARICIÓN SUAVE
+============================================================ */
+.loading-screen.fade-out {
+  animation: fadeOutLoading 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeOutLoading {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+    visibility: hidden;
+  }
+}
+
+/* ============================================================
+   DARK MODE ADJUSTMENTS
+============================================================ */
+[data-tema="oscuro"] .loading-screen {
+  background: linear-gradient(135deg, var(--color-fondo) 0%, var(--color-fondo-secundario) 100%);
+}
+
+/* ============================================================
+   RESPONSIVE ADJUSTMENTS
+============================================================ */
+
+@media (max-height: 600px) {
+  .loading-spinner-container {
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .loading-titulo {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+  }
+
+  .loading-descripcion {
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .loading-spinner-container {
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
+}
+
+/* ============================================================
+   ACCESIBILIDAD
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+
+  .loading-spinner::before,
+  .loading-spinner::after,
+  .loading-progress-bar,
+  .loading-dots::after {
+    animation: none !important;
+  }
+
+  .loading-screen {
+    transition: none;
+  }
+}
+
+/* Preferencia de contraste alto */
+@media (prefers-contrast: more) {
+  .loading-spinner::before {
+    border-color: var(--color-borde);
+  }
+
+  .loading-spinner::before,
+  .loading-spinner::after {
+    border-top-color: var(--color-acento);
+    border-right-color: var(--color-acento);
+  }
+}
