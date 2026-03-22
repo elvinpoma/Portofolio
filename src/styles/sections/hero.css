@@ -2,11 +2,11 @@
    SECCIÓN: HERO
 ============================================================ */
 .hero {
-  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem 2rem 4rem;
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 4vw, 4rem);
   max-width: var(--ancho-maximo);
   margin: 0 auto;
   position: relative;

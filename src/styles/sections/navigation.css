@@ -10,6 +10,8 @@
   align-items: center;
   justify-content: space-between;
   gap: clamp(0.5rem, 2vw, 1.5rem);
+  width: 100dvw;
+  max-width: 100%;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   background: color-mix(in srgb, var(--color-fondo) 75%, transparent);

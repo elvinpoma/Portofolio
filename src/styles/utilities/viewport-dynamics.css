@@ -1,0 +1,313 @@
+/* ============================================================
+   UTILIDADES VIEWPORT DINÁMICO (DVW | DVH)
+   Optimización 100% responsive para todos los dispositivos
+============================================================ */
+
+/* Variables CSS para viewport dinámico con fallbacks */
+:root {
+  /* Dynamic Viewport Heights - Se ajustan con la barra de direcciones móvil */
+  --viewport-height-dynamic: 100dvh;
+  --viewport-height-small: 100svh;
+  --viewport-height-large: 100lvh;
+  
+  /* Dynamic Viewport Widths */
+  --viewport-width-dynamic: 100dvw;
+  --viewport-width-small: 100svw;
+  --viewport-width-large: 100lvw;
+  
+  /* Altura segura para secciones fullscreen */
+  --min-fullscreen-height: max(100dvh, 500px);
+  
+  /* Para compatibilidad con navegadores antiguos */
+  --fallback-viewport-height: 100vh;
+  --fallback-viewport-width: 100vw;
+}
+
+/* ============================================================
+   UTILIDADES DE ALTURA VIEWPORT
+============================================================ */
+.viewport-fullheight,
+.screen-height {
+  height: 100dvh;
+  /* Fallback para navegadores sin soporte dvh */
+  @supports not (height: 100dvh) {
+    height: var(--fallback-viewport-height);
+  }
+}
+
+.viewport-min-fullheight {
+  min-height: 100dvh;
+  @supports not (height: 100dvh) {
+    min-height: var(--fallback-viewport-height);
+  }
+}
+
+.viewport-safe-fullheight {
+  min-height: max(100dvh, 500px);
+  @supports not (height: 100dvh) {
+    min-height: var(--fallback-viewport-height);
+  }
+}
+
+/* ============================================================
+   UTILIDADES DE ANCHO VIEWPORT
+============================================================ */
+.viewport-fullwidth,
+.screen-width {
+  width: 100dvw;
+  max-width: 100%;
+  @supports not (width: 100dvw) {
+    width: var(--fallback-viewport-width);
+  }
+}
+
+/* ============================================================
+   UTILIDADES PARA POSICIONAMIENTO FIXED
+============================================================ */
+.fixed-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  max-width: 100%;
+  @supports not (width: 100dvw) {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   UTILIDADES PARA MODALES Y OVERLAYS
+============================================================ */
+.modal-fullscreen,
+.overlay-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: 100%;
+  
+  @supports not (width: 100dvw) {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+/* ============================================================
+   OPTIMIZACIÓN PARA ELEMENTOS SCROLLEABLES
+============================================================ */
+.scrollable-viewport {
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Mejorar scrolling en móviles */
+  -webkit-overflow-scrolling: touch;
+  
+  @supports not (height: 100dvh) {
+    height: 100vh;
+  }
+}
+
+/* ============================================================
+   PROTECCIÓN CONTRA SCROLL BOUNCE EN iOS
+============================================================ */
+.no-scroll-bounce {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  top: 0;
+  left: 0;
+  @supports not (width: 100dvw) {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+/* ============================================================
+   OPTIMIZACIONES PARA HERO / LANDING SECTIONS
+============================================================ */
+.hero-fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  width: 100%;
+  position: relative;
+  
+  @supports not (height: 100dvh) {
+    min-height: 100vh;
+  }
+}
+
+/* ============================================================
+   LAYOUT RESPONSIVO CON VIEWPORT DINÁMICO
+============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Asegurar que el body ocupe el viewport dinámico */
+body {
+  /* El body debe tener altura mínima del viewport dinámico */
+  min-height: 100dvh;
+  
+  @supports not (height: 100dvh) {
+    min-height: 100vh;
+  }
+}
+
+/* ============================================================
+   COMPATIBILIDAD CON SAFE-AREAS (Notches, Barras)
+============================================================ */
+.safe-area-top {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+.safe-area-bottom {
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+.safe-area-left {
+  padding-left: max(0px, env(safe-area-inset-left));
+}
+
+.safe-area-right {
+  padding-right: max(0px, env(safe-area-inset-right));
+}
+
+.safe-area-all {
+  padding: max(0px, env(safe-area-inset-top)) 
+           max(0px, env(safe-area-inset-right))
+           max(0px, env(safe-area-inset-bottom))
+           max(0px, env(safe-area-inset-left));
+}
+
+/* ============================================================
+   OPTIMIZACIONES PARA PANTALLAS CON NOTCH/DYNAMIC ISLAND
+============================================================ */
+@supports (padding: max(0px, env(safe-area-inset-top))) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* ============================================================
+   MEDIA QUERIES OPTIMIZADAS CON VIEWPORT DINÁMICO
+============================================================ */
+
+/* Tabletas en orientación normal */
+@media (min-height: 800px) and (orientation: landscape) {
+  .hero-fullscreen {
+    min-height: max(100dvh, 600px);
+  }
+}
+
+/* Móviles pequeños */
+@media (max-height: 600px) {
+  .hero-fullscreen {
+    min-height: 100dvh;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(0.5rem, 2vw, 1rem);
+  }
+}
+
+/* Tabletas */
+@media (min-width: 768px) {
+  :root {
+    --viewport-safe-margin: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+  :root {
+    --viewport-safe-margin: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+/* ============================================================
+   ANIMACIONES CON VIEWPORT DINÁMICO
+============================================================ */
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100dvh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100dvh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes expandFromCenter {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100dvw;
+    height: 100dvh;
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   TEXTO RESPONSIVO CON VIEWPORT DINÁMICO
+============================================================ */
+/* Font-size que se ajusta al viewport dinámico */
+.responsive-text {
+  font-size: clamp(1rem, 2vw, 2rem);
+}
+
+.responsive-heading {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
+.responsive-large {
+  font-size: clamp(2rem, 8vw, 5rem);
+  line-height: 1.1;
+}
+
+/* ============================================================
+   ESPACIADO RESPONSIVO
+============================================================ */
+.viewport-padding {
+  padding: clamp(1rem, 5vw, 3rem);
+}
+
+.viewport-gap {
+  gap: clamp(0.75rem, 3vw, 2rem);
+}
+
+.viewport-margin {
+  margin: clamp(1rem, 5vw, 3rem);
+}
+
+/* ============================================================
+   ELEMENTOS STICKY CON VIEWPORT DINÁMICO
+============================================================ */
+.sticky-viewport {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* Asegurar que no se pasa de 100dvh */
+  max-height: 100dvh;
+  overflow-y: auto;
+}

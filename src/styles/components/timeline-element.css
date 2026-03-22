@@ -5,7 +5,7 @@
   background: var(--color-superficie);
   border: 1px solid var(--color-borde);
   border-radius: var(--radio-tarjeta);
-  padding: 1.75rem;
+  padding: clamp(1.2rem, 3vw, 1.75rem);
   box-shadow: var(--sombra-suave);
   transition: var(--transicion-fluida);
   position: relative;
@@ -19,33 +19,34 @@
 
 .timeline__anio {
   font-family: var(--fuente-mono);
-  font-size: 0.7rem;
+  font-size: clamp(0.65rem, 1.3vw, 0.7rem);
   font-weight: 700;
   color: var(--color-acento);
   letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
+  margin-bottom: clamp(0.3rem, 0.8vw, 0.5rem);
 }
 
 .timeline__centro {
-  font-size: 0.78rem;
+  font-size: clamp(0.7rem, 1.4vw, 0.78rem);
   font-weight: 600;
   color: var(--color-texto-terciario);
-  margin-bottom: 0.6rem;
+  margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: clamp(0.3rem, 0.8vw, 0.4rem);
 }
 
 .timeline__titulo-estudio {
   font-family: var(--fuente-display);
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: 700;
   color: var(--color-texto-primario);
-  margin-bottom: 0.75rem;
+  margin-bottom: clamp(0.5rem, 1.2vw, 0.75rem);
 }
 
 .timeline__punto-circulo {
-  width: 16px; height: 16px;
+  width: clamp(12px, 2vw, 16px);
+  height: clamp(12px, 2vw, 16px);
   background: var(--color-acento);
   border-radius: 50%;
   border: 3px solid var(--color-fondo);

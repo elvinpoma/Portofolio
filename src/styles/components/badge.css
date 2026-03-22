@@ -3,14 +3,15 @@
 ============================================================ */
 .etiqueta-tech {
   font-family: var(--fuente-mono);
-  font-size: 0.72rem;
-  padding: 0.35rem 0.8rem;
+  font-size: clamp(0.65rem, 1.5vw, 0.72rem);
+  padding: clamp(0.3rem, 0.8vw, 0.35rem) clamp(0.6rem, 1.5vw, 0.8rem);
   border-radius: 6px;
   background: var(--color-superficie);
   border: 1px solid var(--color-borde);
   color: var(--color-texto-secundario);
   letter-spacing: 0.04em;
   transition: var(--transicion-fluida);
+  white-space: nowrap;
 }
 
 .etiqueta-tech:hover {
@@ -21,8 +22,8 @@
 
 .etiqueta-idioma {
   font-family: var(--fuente-mono);
-  font-size: 0.65rem;
-  padding: 0.25rem 0.6rem;
+  font-size: clamp(0.6rem, 1.3vw, 0.65rem);
+  padding: clamp(0.2rem, 0.6vw, 0.25rem) clamp(0.5rem, 1.2vw, 0.6rem);
   border-radius: 5px;
   background: var(--color-acento-sutil);
   color: var(--color-acento);

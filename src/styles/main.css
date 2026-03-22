@@ -2,35 +2,33 @@
    TOKENS Y VARIABLES DE DISEÑO
 ============================================================ */
 :root {
-  --color-fondo: #F7F7F7;
+  --color-fondo:          #F7F7F7;
   --color-fondo-secundario: #EFEFEF;
-  --color-superficie: #FFFFFF;
-  --color-borde: rgba(0, 0, 0, 0.08);
+  --color-superficie:     #FFFFFF;
+  --color-borde:          rgba(0,0,0,0.08);
   --color-texto-primario: #0A0A0A;
   --color-texto-secundario: #5A5A6A;
   --color-texto-terciario: #8A8A9A;
-  --color-acento: #0052CC;
-  --color-acento-hover: #0041A8;
-  --color-acento-glow: rgba(0, 82, 204, 0.30);
-  --color-acento-sutil: rgba(0, 82, 204, 0.08);
-
-  --fuente-display: 'Syne', sans-serif;
-  --fuente-cuerpo: 'Figtree', sans-serif;
-  --fuente-mono: 'JetBrains Mono', monospace;
-
-  --radio-tarjeta: 16px;
-  --sombra-suave: 0 4px 24px rgba(0, 0, 0, 0.07);
-  --sombra-elevada: 0 12px 40px rgba(0, 0, 0, 0.12);
-  --transicion-fluida: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --ancho-maximo: 1200px;
+  --color-acento:         #0052CC;
+  --color-acento-hover:   #0041A8;
+  --color-acento-glow:    rgba(0, 82, 204, 0.30);
+  --color-acento-sutil:   rgba(0, 82, 204, 0.08);
+  
+  --fuente-display:       'Syne', sans-serif;
+  --fuente-cuerpo:        'Figtree', sans-serif;
+  --fuente-mono:          'JetBrains Mono', monospace;
+  
+  --radio-tarjeta:        16px;
+  --sombra-suave:         0 4px 24px rgba(0,0,0,0.07);
+  --sombra-elevada:       0 12px 40px rgba(0,0,0,0.12);
+  --transicion-fluida:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --ancho-maximo:         1200px;
 }
 
 /* ============================================================
    RESET Y BASE (OPTIMIZADO)
 ============================================================ */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -38,33 +36,34 @@
 
 html {
   scroll-behavior: smooth;
+  /* Mejoramos el soporte de scrollbar */
   scrollbar-gutter: stable;
+  /* Asegurar que el viewport dinámico se usa correctamente */
+  height: 100%;
 }
 
 body {
-  font-family: var(--fuente-cuerpo);
+  font-family:      var(--fuente-cuerpo);
   background-color: var(--color-fondo);
-  color: var(--color-texto-primario);
-  line-height: 1.6;
-  /* Un poco más estándar */
-  font-size: 1rem;
-  overflow-x: hidden;
+  color:            var(--color-texto-primario);
+  line-height:      1.6; /* Un poco más estándar */
+  font-size:        1rem;
+  overflow-x:       hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Usar el viewport dinámico para mejor responsividad en móviles */
+  min-height: 100dvh;
 }
 
-
+/* Solo ocultar el cursor si el dispositivo tiene puntero (ratón) */
 @media (pointer: fine) {
   body.custom-cursor {
     cursor: none;
   }
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
+/* Reset de imágenes para evitar que rompan el móvil */
+img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -82,19 +81,17 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
+  /* Usamos un SVG más simple para no saturar la CPU del móvil */
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='ruido'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23ruido)' opacity='1'/%3E%3C/svg%3E");
   opacity: 0.02;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9999; 
 }
 
 /* ============================================================
    TIPOGRAFÍA Y LAYOUT
 ============================================================ */
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
   font-family: var(--fuente-display);
   font-weight: 700;
   line-height: 1.1;
@@ -109,6 +106,7 @@ a {
 
 .seccion {
   position: relative;
+  /* Padding fluido: 4rem en móvil, hasta 8rem en escritorio */
   padding: clamp(4rem, 10vh, 8rem) clamp(1.25rem, 5vw, 2rem);
   max-width: var(--ancho-maximo);
   margin: 0 auto;
@@ -129,7 +127,7 @@ a {
 
 .seccion__etiqueta::before {
   content: '';
-  width: 20px;
+  width: 20px; 
   height: 2px;
   background: var(--color-acento);
   border-radius: 2px;
@@ -137,14 +135,14 @@ a {
 
 .seccion__titulo {
   /* Título que se ajusta solo de tamaño */
-  font-size: clamp(2.25rem, 8vw, 4rem);
+  font-size: clamp(2.25rem, 8vw, 4rem); 
   color: var(--color-texto-primario);
   margin-bottom: 1.5rem;
-  text-wrap: balance;
+  text-wrap: balance; /* Evita palabras sueltas feas en móvil */
 }
 
 .seccion__descripcion {
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--color-texto-secundario);
-  max-width: 60ch;
+  max-width: 60ch; /* Limita el ancho por número de caracteres (mejor para lectura) */
 }

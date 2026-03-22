@@ -11,15 +11,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .carrusel {
   overflow: hidden;
   position: relative;
-  border-radius: 20px;
+  border-radius: clamp(12px, 3vw, 20px);
   cursor: none;
 }
 
@@ -28,7 +28,7 @@
   content: '';
   position: absolute;
   top: 0; bottom: 0;
-  width: 80px;
+  width: clamp(40px, 10vw, 80px);
   z-index: 2;
   pointer-events: none;
 }
@@ -45,8 +45,8 @@
 
 .carrusel__pista {
   display: flex;
-  gap: 1.5rem;
-  padding: 1rem 0;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  padding: clamp(0.5rem, 1.5vw, 1rem) 0;
   width: max-content;
   animation: deslizarCarrusel 30s linear infinite;
 }

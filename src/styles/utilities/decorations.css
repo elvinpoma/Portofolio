@@ -4,7 +4,8 @@
 .hero__fondo-malla {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: 100svh;
+  height: 100dvh;
+  width: 100dvw;
   z-index: -1;
   overflow: hidden;
 }

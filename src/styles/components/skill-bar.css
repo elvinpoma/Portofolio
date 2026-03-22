@@ -4,19 +4,19 @@
 .barra-habilidad {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: clamp(0.3rem, 0.8vw, 0.4rem);
 }
 
 .barra-habilidad__cabecera {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 1.4vw, 0.8rem);
   font-weight: 600;
   color: var(--color-texto-secundario);
 }
 
 .barra-habilidad__pista {
-  height: 6px;
+  height: clamp(4px, 1vw, 6px);
   background: var(--color-borde);
   border-radius: 99px;
   overflow: hidden;

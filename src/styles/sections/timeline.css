@@ -7,7 +7,7 @@
 
 .timeline__cabecera {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: clamp(3rem, 8vw, 5rem);
 }
 
 .timeline__cabecera .seccion__etiqueta {
@@ -26,7 +26,7 @@
 
 .timeline__contenedor {
   position: relative;
-  padding: 1rem 0;
+  padding: clamp(0.5rem, 1vw, 1rem) 0;
 }
 
 .timeline__linea {
@@ -42,18 +42,18 @@
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
   gap: 0;
-  margin-bottom: 3.5rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
   position: relative;
 }
 
 .timeline__elemento--izquierda .timeline__tarjeta {
   grid-column: 1;
-  margin-right: 1.5rem;
+  margin-right: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .timeline__elemento--derecha .timeline__tarjeta {
   grid-column: 3;
-  margin-left: 1.5rem;
+  margin-left: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .timeline__elemento--izquierda .timeline__espacio {

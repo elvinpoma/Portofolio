@@ -1,7 +1,5 @@
 /* ============================================================
    ESTILOS BASE (Móvil Primero - Recomendado)
-   Consejo: Es mejor diseñar para móvil y luego ampliar. 
-   Pero si ya tienes tu base, sigamos con tus Media Queries:
 ============================================================ */
 
 /* TABLETS Y LAPTOPS PEQUEÑAS (1024px hacia abajo) */
@@ -17,7 +15,7 @@
   }
 
   .sobre-mi__avatar {
-    max-width: 220px; /* Un poco más pequeño para tablets */
+    max-width: 220px;
     margin: 0 auto;
   }
 }
@@ -32,20 +30,24 @@
     display: flex;
   }
 
-  /* Menú pantalla completa */
+
   .navegacion__enlaces.abierto {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
+    width: 100dvw;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px) saturate(120%);
     -webkit-backdrop-filter: blur(12px) saturate(120%);
-    padding: 8rem 2rem 2rem 2rem;
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem);
     z-index: 999;
     justify-content: flex-start;
     align-items: center;
     animation: menuApertura 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    overflow: hidden;
+    overscroll-behavior: contain;
   }
 
   .navegacion__enlaces.abierto::before {
@@ -112,7 +114,7 @@
 
   /* Ajuste de Timeline para móviles */
   .timeline__linea {
-    left: 20px; /* Un poco más hacia el borde */
+    left: 20px;
   }
 
   .timeline__elemento {
@@ -124,7 +126,7 @@
   .timeline__elemento--derecha .timeline__tarjeta {
     grid-column: 2;
     margin: 0;
-    width: 100%; /* Asegura que ocupe todo el espacio */
+    width: 100%;
   }
 
   .timeline__punto {
@@ -151,22 +153,27 @@
 /* MÓVILES PEQUEÑOS (480px hacia abajo) */
 @media (max-width: 480px) {
   .seccion {
-    padding: 3rem 1rem; /* Menos relleno para ganar espacio */
+    padding: clamp(2rem, 6vw, 3rem) clamp(0.75rem, 2vw, 1rem);
   }
 
   .hero {
-    padding: 5rem 1rem 2rem;
+    padding: clamp(3rem, 6vw, 5rem) clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
   }
 
   h1 {
-    font-size: 1.8rem; /* Ajustar títulos si son muy largos */
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
   }
 
   .sobre-mi__avatar {
-    max-width: 180px; /* Más pequeño para que no coma pantalla */
+    max-width: clamp(150px, 40vw, 180px);
   }
   
   .timeline__tarjeta {
-    padding: 1rem; /* Menos aire dentro de las tarjetas */
+    padding: clamp(0.75rem, 2vw, 1rem);
+  }
+
+  /* Optimizar alturas mínimas para dispositivos móviles */
+  .hero {
+    min-height: max(100dvh, 500px);
   }
 }
