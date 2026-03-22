@@ -49,6 +49,7 @@
   <!-- ============================================================
        ESTILOS - UTILITIES
   ============================================================ -->
+  <link rel="stylesheet" href="./src/styles/utilities/loading.css" />
   <link rel="stylesheet" href="./src/styles/utilities/viewport-dynamics.css" />
   <link rel="stylesheet" href="./src/styles/utilities/animations.css" />
   <link rel="stylesheet" href="./src/styles/utilities/decorations.css" />
@@ -56,7 +57,21 @@
 </head>
 
 <body>
+== PANTALLA DE CARGA / LOADING SCREEN ===================== -->
+  <div class="loading-screen" id="loadingScreen" role="status" aria-label="Cargando página">
+    <div class="loading-spinner-container">
+      <div class="loading-spinner"></div>
+      <div class="loading-texto">
+        <h1 class="loading-titulo">Cargando portafolio</h1>
+        <p class="loading-descripcion">Preparando tu experiencia<span class="loading-dots"></span></p>
+      </div>
+      <div class="loading-progress">
+        <div class="loading-progress-bar"></div>
+      </div>
+    </div>
+  </div>
 
+  <!-- 
   <!-- ── BARRA DE PROGRESO ─────────────────────────────────────── -->
   <div class="barra-progreso" id="barraProgreso" role="progressbar" aria-hidden="true"></div>
 
@@ -547,6 +562,7 @@
   <!-- ================================================================
        JAVASCRIPT - MÓDULOS
   ================================================================ -->
+  <script src="./src/js/modules/loading.js"></script>
   <script src="./src/js/modules/theme.js"></script>
   <script src="./src/js/modules/cursor.js"></script>
   <script src="./src/js/modules/mobile-menu.js"></script>
